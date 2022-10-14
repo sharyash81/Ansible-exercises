@@ -1,3 +1,33 @@
 - name: script module
   script: test.sh
   tags: script_mod
+
+- name: shell module ex1
+  shell: cat /home/dir1/file1
+  register: shell_out_cat
+  tags: shell_mod
+
+- name: show shell_out_cat
+  debug:
+    msg: "{{shell_out_cat.stdout}}"
+  tags: shell_mod
+
+- name: shell module ex2
+  shell: ps -aux
+  register: shell_out_ps
+  tags: shell_mod
+
+- name: show shell_out_ps
+  debug:
+    msg: "{{shell_out_ps.stdout}}"
+  tags: shell_mod
+
+- name: shell module ex3
+  shell: curl -v https://anisa.co.ir
+  register: shell_out_cr
+  tags: shell_mod
+
+- name: show shell_out_cr
+  debug:
+    msg: "{{shell_out_cr.stdout}}"
+  tags: shell_mod
