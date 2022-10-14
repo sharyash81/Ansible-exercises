@@ -31,3 +31,44 @@
   debug:
     msg: "{{shell_out_cr.stdout}}"
   tags: shell_mod
+
+- name: copy module 
+  copy:
+    src: test.txt
+    dest: /home/dir1/
+    owner: root
+    group: root
+    mode: 0644
+  tags: copy_mod_1
+
+- name: copy module with force no
+  copy:
+    src: test.txt
+    dest: /home/dir1/
+    owner: root
+    group: root
+    mode: 0644
+    force: no
+  tags: copy_mod_2
+
+- name: copy module with backup yes
+  copy:
+    src: test.txt
+    dest: /home/dir1
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+    backup: yes
+  tags: copy_mod_3
+
+- name: copy module with remote src
+  copy:
+    src: /home/dir1/test.txt
+    dest: /home/
+    owner: root
+    group: root
+    mode: 0644
+    remote_src: yes
+  tags: copy_mod_4
+
