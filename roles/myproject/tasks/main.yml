@@ -72,3 +72,16 @@
     remote_src: yes
   tags: copy_mod_4
 
+- name: fetch module
+  fetch:
+    src: /home/dir1/file1
+    dest: /home
+  tags: fetch_mod
+
+- name: fetch module with flat yes
+  fetch:
+    src: /home/dir1/file1
+    dest: /home/
+    flat: yes
+    validate_checksum: no
+  tags: fetch_mod_1
