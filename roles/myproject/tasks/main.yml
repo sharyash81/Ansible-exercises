@@ -139,4 +139,23 @@
     state: present
   tags: yum_mod
 
+- name: update nginx
+  yum:
+    name: nginx
+    state: latest
+    update_only: yes
+  tags: yum_mod_1
+
+- name: update all packages
+  yum:
+    name: '*'
+    state: latest
+  tags: update_all_packages
+
+- name: update all packages except kernel related packages
+  yum:
+    name: '*'
+    state: latest
+    exclude: kernel*
+  tags: update_packages
 ~                 
