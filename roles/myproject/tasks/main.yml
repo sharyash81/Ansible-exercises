@@ -85,3 +85,9 @@
     flat: yes
     validate_checksum: no
   tags: fetch_mod_1
+
+- name: group module 
+  group:
+    name: devops
+    state: present
+  tags: group_mod 
