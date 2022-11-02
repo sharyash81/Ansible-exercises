@@ -90,4 +90,22 @@
   group:
     name: devops
     state: present
-  tags: group_mod 
+  tags: group_mod
+
+- name: user module
+  user:
+    name: arya
+    group: devops
+    state: present
+    shell: /bin/bash
+    home: /tmp/arya
+  tags: user_mod
+
+- name: expect mod
+  expect:
+    command: passwd arya
+    responses:
+      password: "123"
+  no_log: true
+  tags: expect_mod
+~                    
