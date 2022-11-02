@@ -108,4 +108,19 @@
       password: "123"
   no_log: true
   tags: expect_mod
-~                    
+
+- name: zypper repository module
+  zypper_repository:
+    name: ansible
+    repo: /opt/Ansible
+    state: present
+  tags: zypp_mod
+
+- name: zypper module
+  zypper:
+    name: 'http://nginx.org/packages/sles/12/x86_64/RPMS/nginx-1.8.0-1.sles12.ngx.x86_64.rpm'
+    state: present
+    disable_gpg_check: yes
+  tags: zypper_mod
+
+~                 
