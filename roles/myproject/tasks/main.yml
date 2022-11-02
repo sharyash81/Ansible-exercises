@@ -123,4 +123,20 @@
     disable_gpg_check: yes
   tags: zypper_mod
 
+- name: yum repository module 
+  yum_repository:
+    name: epel
+    description: extra packages
+    baseurl: https://download.fedoraproject.org/pub/epel/$releaseever/$basearch
+    gpgcheck: no
+    enabled: yes
+    state: present
+  tags: yum_repo_mod
+
+- name: yum module 
+  yum:
+    name: nginx 
+    state: present
+  tags: yum_mod
+
 ~                 
